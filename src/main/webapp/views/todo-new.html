@@ -2,23 +2,26 @@
 
     <h2>New Todo</h2>
 
-    <form>
+    <form class="form-horizontal">
 
-        <div class="formField">
-            <label for="todo.title">Titre</label>
-            <input id="todo.title" type="text" ng-model="todo.title"/>
+        <div class="control-group">
+            <label for="todo.title" class="control-label">Titre</label>
+            <div class="controls">
+            	<input id="todo.title" type="text" ng-model="todo.title"/>
+           	</div>
         </div>
 
-        <div class="formField">
-            <label for="todo.description">Description</label>
-            <textarea id="todo.description" ng-model="todo.description">
-            </textarea>
+        <div class="control-group">
+            <label for="todo.description" class="control-label">Description</label>
+            <div class="controls">
+            	<textarea id="todo.description" ng-model="todo.description"></textarea>
+           	</div>
         </div>
 
         <hr/>
 
-        <button class="button" ng-click="gotoTodoListPage()">&lt; Retour</button> &nbsp;
-        <button class="button" ng-click="submit()">Sauver</button>
+        <button class="btn btn-danger" ng-click="gotoTodoListPage()">« Retour</button> &nbsp;
+        <button class="btn btn-success" ng-click="submit()">Sauver</button>
 
     </form>
 

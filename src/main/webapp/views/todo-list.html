@@ -2,16 +2,23 @@
 
     <h2>Liste des todos</h2>
 
-    <ul>
-        <li ng-repeat="todo in todos">
-            <a href="#/todo/{{todo.id}}"><span class="todoTitle">{{todo.title}}</span></a> :
-            <span class="todoDescription">{{todo.description | filter:ellipsis:20}}</span> &nbsp;
-            <button class="button" ng-click="deleteTodo(todo)">X</button>
-        </li>
-    </ul>
+    <table class="table">
+    	<thead>
+    		<tr>
+    			<th>Title</th>
+    			<th>Description</th>
+    			<th>Action</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+	        <tr ng-repeat="todo in todos">
+	            <td><a href="#/todo/{{todo.id}}"><span class="todoTitle">{{todo.title}}</span></a> :</td>
+	            <td><span class="todoDescription">{{todo.description | filter:ellipsis:20}}</span> &nbsp;</td>
+	            <td><button class="button" ng-click="deleteTodo(todo)"><i class="icon-trash"></i></button></td>
+	        </tr>
+       </tbody>
+    </table>
 
-    <hr/>
-
-    <button ng-click="gotoTodoNewPage()" class="button">Ajouter</button>
+    <button ng-click="gotoTodoNewPage()" class="btn btn-primary btn-large pull-right">Ajouter</button>
 
 </div>
