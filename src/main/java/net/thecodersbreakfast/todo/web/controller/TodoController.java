@@ -31,16 +31,6 @@ public class TodoController {
 
 	private	@Autowired MongoOperations mongoOperations;
 	
-//	private @Autowired Mongo mongo;
-	
-//private	@Autowired Object test;
-	
-	
-	@PostConstruct
-	void initDb() {
-//		System.out.println("là : ddddddddddddd " + test);
-//			mongoOperations = new MongoTemplate(mongo, "mydb");
-	}
 
 	@RequestMapping(value = "/todo", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody
@@ -57,13 +47,16 @@ public class TodoController {
 	@RequestMapping(value = "/todo", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void create(@RequestBody Todo todo) {
-		mongoOperations.insert(todo);		
+		mongoOperations.save(todo);		
 	}
 
+	
 	@RequestMapping(value = "/todo/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable String id) {
 		mongoOperations.remove(mongoOperations.findById(id, Todo.class));
 	}
 
+	
+	
 }

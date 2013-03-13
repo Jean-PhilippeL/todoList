@@ -30,4 +30,9 @@ public class AppConfig {
     	 UserCredentials credentials = new UserCredentials("todouser", "todopwd");
 		return new MongoTemplate(mongo, "tododb", credentials );
      }
+     
+     
+     public  @Bean String test(){
+    	 return "cool ca marche avec mehdi !";
+     }
 }

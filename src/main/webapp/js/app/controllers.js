@@ -12,21 +12,23 @@ function TodoListController($scope, $location, Todo) {
     };
 }
 
-function TodoDetailController($scope, $routeParams, $location, Todo) {
-    $scope.todo = Todo.get({id:$routeParams.id}, function (todo) {
-    });
-    $scope.gotoTodoListPage = function () {
-        $location.path("/")
-    };
-}
-
-function TodoNewController($scope, $location, Todo) {
+function TodoController($scope, $routeParams, $location, Todo) {
+	var id = $routeParams.id;
+	if(id){
+	    $scope.todo = Todo.get({id:id}, function (todo) {
+	    });
+	}
+	
+    
     $scope.submit = function () {
-        Todo.save($scope.todo, function (todo) {
-            $location.path('/');
+    	Todo.save($scope.todo, function (todo) {
+          $location.path('/');
         });
     };
     $scope.gotoTodoListPage = function () {
         $location.path("/")
     };
+    
+    
 }
+
