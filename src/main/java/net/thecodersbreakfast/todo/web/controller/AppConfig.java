@@ -3,6 +3,7 @@ package net.thecodersbreakfast.todo.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.authentication.UserCredentials;
 import org.springframework.data.mongodb.core.MongoFactoryBean;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -17,7 +18,8 @@ public class AppConfig {
      */
      public @Bean MongoFactoryBean mongo() {
           MongoFactoryBean mongo = new MongoFactoryBean();
-          mongo.setHost("localhost");
+          mongo.setHost("ds033477.mongolab.com");
+          mongo.setPort(33477);
           return mongo;
      }
      
@@ -25,6 +27,7 @@ public class AppConfig {
      private @Autowired Mongo mongo;
      
      public @Bean MongoOperations mongoOperations() {
-    	 return new MongoTemplate(mongo, "mydb");
+    	 UserCredentials credentials = new UserCredentials("todouser", "todopwd");
+		return new MongoTemplate(mongo, "tododb", credentials );
      }
 }
