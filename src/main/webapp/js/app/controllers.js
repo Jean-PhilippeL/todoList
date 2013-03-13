@@ -1,7 +1,14 @@
 'use strict';
 
 function TodoListController($scope, $location, Todo) {
-    $scope.todos = Todo.query();
+	
+	$scope.loading = true;
+	
+    $scope.todos = Todo.query(function() {
+    	$scope.loading = false ;	
+    });
+    
+    
     $scope.gotoTodoNewPage = function () {
         $location.path("/todo/new")
     };

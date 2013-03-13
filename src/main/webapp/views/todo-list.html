@@ -1,4 +1,4 @@
-<div id="todoList">
+<div id="todoList" ng-hide="loading">
 
     <h2>Liste des todos</h2>
 
@@ -22,3 +22,10 @@
     <button ng-click="gotoTodoNewPage()" class="btn btn-primary btn-large pull-right">Ajouter</button>
 
 </div>
+
+
+<div class="alert alert-info" ng-show="loading">
+	<i class=icon-refresh></i> Loading tasks from MongoDb
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+
