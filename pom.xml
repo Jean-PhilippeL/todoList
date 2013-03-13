@@ -18,6 +18,7 @@
 		<!-- Dependencies -->
 		<version.spring>3.1.2.RELEASE</version.spring>
 		<version.jackson>1.9.4</version.jackson>
+		<version.mongo>2.10.1</version.mongo>
 	</properties>
 
 	<!-- ================================================================================ -->
@@ -79,6 +80,24 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>${version.jackson}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>${version.mongo}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.1.1.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<!-- ================================================================================ -->
